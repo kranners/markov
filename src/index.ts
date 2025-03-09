@@ -1,4 +1,5 @@
 import { generateMarkovDatabase } from "./lib/generate";
+import { lookupMarkovDatabase } from "./lib/lookup";
 
 const [subcommand, remainingArguments] = process.argv.slice(2);
 
@@ -8,7 +9,7 @@ switch (subcommand) {
     generateMarkovDatabase(remainingArguments);
     break;
   case "lookup":
-    console.log("looking up", remainingArguments);
+    console.log(lookupMarkovDatabase(remainingArguments));
     break;
   default:
     console.error(`Unrecognized subcommand: ${subcommand}`);

@@ -10,7 +10,9 @@ export const generateMarkovDatabase = (directory: string) => {
   // For each file, tokenize and turn into a giant flat list of tokens
   const tokens = documents.flatMap((document) => {
     const contents = readFileSync(`${directory}/${document}`).toString();
-    return contents.split(/\W+/);
+
+    // Remove the empty whitespace tokens
+    return contents.split(/\W+/).filter(token => token !== '');
   });
 
   // For each pair of tokens, increment an occurence of token a -> token b
