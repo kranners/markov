@@ -137,3 +137,6 @@ dist
 
 # direnv
 .direnv
+
+# ts output
+dist
