@@ -140,3 +140,4 @@ dist
 
 # ts output
 dist
+database.json

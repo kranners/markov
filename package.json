@@ -2,12 +2,16 @@
   "name": "markov",
   "version": "0.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+    "build": "tsc",
+    "watch": "tsc --watch"
+  },
   "keywords": [],
   "author": "",
   "license": "GPL-3.0-or-later",
   "description": "",
   "devDependencies": {
+    "@types/node": "^22.13.10",
     "typescript": "^5.8.2"
   }
 }
