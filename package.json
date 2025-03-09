@@ -1,13 +1,19 @@
 {
-  "name": "markov",
+  "name": "@cute-engineer/markov",
   "version": "0.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "bin": {
+    "markov": "dist/index.js"
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "build": "tsc",
     "watch": "tsc --watch"
   },
   "keywords": [],
-  "author": "",
+  "author": "kranners",
   "license": "GPL-3.0-or-later",
   "description": "",
   "devDependencies": {

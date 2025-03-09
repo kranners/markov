@@ -36,7 +36,7 @@ export const lookupMarkovDatabase = (queryToken: string, databasePath: string = 
   return lookupRespectingProbabilities(probabilities);
 }
 
-export const loopMarkovDatabase = (queryToken: string, count: number) => {
+export const stepMarkovDatabase = (queryToken: string, count: number) => {
   const words: string[] = [];
 
   while (count > 0) {
