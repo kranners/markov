@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { generateMarkovDatabase } from "./lib/generate";
 import { stepMarkovDatabase } from "./lib/lookup";
 
