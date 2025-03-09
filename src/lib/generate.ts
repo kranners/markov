@@ -26,6 +26,11 @@ export const generateMarkovDatabase = (directory: string) => {
 
     const occurences = accumulator[token]?.[previousToken] ?? 0;
 
+    if (typeof occurences !== "number") {
+      console.debug("Skipping non-number occurence", { token, previousToken });
+      return accumulator;
+    }
+
     accumulator[token][previousToken] = occurences + 1;
 
     return accumulator;

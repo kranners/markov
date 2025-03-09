@@ -23,6 +23,8 @@ const lookupRespectingProbabilities = (probabilities: Record<string, number>) =>
       return token;
     }
   }
+
+  throw new Error("Lookup failed, probabilities didn't sum to 1.");
 }
 
 export const lookupMarkovDatabase = (queryToken: string, databasePath: string = "database.json") => {
@@ -32,5 +34,17 @@ export const lookupMarkovDatabase = (queryToken: string, databasePath: string = 
   const probabilities = softmax(occurences);
 
   return lookupRespectingProbabilities(probabilities);
+}
+
+export const loopMarkovDatabase = (queryToken: string, count: number) => {
+  const words: string[] = [];
+
+  while (count > 0) {
+    const word = words.at(-1) ?? queryToken;
+    words.push(lookupMarkovDatabase(word));
+    count--;
+  }
+
+  return words;
 }
 

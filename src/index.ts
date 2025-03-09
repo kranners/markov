@@ -1,15 +1,18 @@
 import { generateMarkovDatabase } from "./lib/generate";
-import { lookupMarkovDatabase } from "./lib/lookup";
+import { loopMarkovDatabase } from "./lib/lookup";
 
-const [subcommand, remainingArguments] = process.argv.slice(2);
+const [subcommand, ...remainingArguments] = process.argv.slice(2);
 
 switch (subcommand) {
   case "generate":
     // TODO: Error handling?
-    generateMarkovDatabase(remainingArguments);
+    const [directory] = remainingArguments;
+    generateMarkovDatabase(directory);
     break;
-  case "lookup":
-    console.log(lookupMarkovDatabase(remainingArguments));
+  case "loop":
+    const [queryToken, count = 1] = remainingArguments;
+    const words = loopMarkovDatabase(queryToken, Number(count))
+    console.log(words.join(" "));
     break;
   default:
     console.error(`Unrecognized subcommand: ${subcommand}`);
