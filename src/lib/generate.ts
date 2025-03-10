@@ -1,4 +1,5 @@
 import { readdirSync, readFileSync, writeFileSync } from "fs"
+import { DATABASE_JSON_FILEPATH } from "..";
 
 type MarkovDatabase = Record<string, Record<string, number>>;
 
@@ -37,5 +38,5 @@ export const generateMarkovDatabase = (directory: string) => {
   }, {});
 
   // Serialize the JSON and save it to a file
-  writeFileSync("database.json", JSON.stringify(database, null, 2));
+  writeFileSync(DATABASE_JSON_FILEPATH, JSON.stringify(database, null, 2));
 }

@@ -10,7 +10,8 @@
   ],
   "scripts": {
     "build": "tsc",
-    "watch": "tsc --watch"
+    "watch": "tsc --watch",
+    "start": "markov"
   },
   "keywords": [],
   "author": "kranners",
