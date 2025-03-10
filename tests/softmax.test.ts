@@ -11,21 +11,21 @@ const OCCURENCES = {
 describe("softmax", () => {
   it("calculates correct at low temperature", () => {
     expect(softmax(OCCURENCES, 1)).toMatchObject({
-      a: expect.closeTo(0.000044792247059431263),
-      b: expect.closeTo(0.006647758889393291),
-      c: expect.closeTo(0.9866148977270944),
-      d: expect.closeTo(0.006647758889393291),
-      e: expect.closeTo(0.000044792247059431263),
+      a: 0.000044792247059431263,
+      b: 0.006647758889393291,
+      c: 0.9866148977270944,
+      d: 0.006647758889393291,
+      e: 0.000044792247059431263,
     })
   });
 
   it("calculates correct at high temperature", () => {
-    expect(softmax(OCCURENCES, 5)).not.toMatchObject({
-      a: expect.closeTo(0.000044792247059431263),
-      b: expect.closeTo(0.006647758889393291),
-      c: expect.closeTo(0.9866148977270944),
-      d: expect.closeTo(0.006647758889393291),
-      e: expect.closeTo(0.000044792247059431263),
-    })
+    expect(softmax(OCCURENCES, 50)).toMatchObject({
+      a: 0.1841029125425514,
+      b: 0.2034651848750522,
+      c: 0.22486380516479282,
+      d: 0.2034651848750522,
+      e: 0.1841029125425514,
+    });
   });
 });
